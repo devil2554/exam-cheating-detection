@@ -118,9 +118,9 @@ mouth:
 Problem: Eye detection working, but not perfect
 
 Solution:
-    -Ensure good lighting on face
-    -Remove glasses if they cause glare
-    -Adjust camera position to be face-level
+    - Ensure good lighting on face
+    - Remove glasses if they cause glare
+    - Adjust camera position to be face-level
 
 Problem: Book detection working, but not perfect
 
