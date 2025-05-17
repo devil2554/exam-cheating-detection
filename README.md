@@ -13,6 +13,7 @@ A computer vision system that detects suspicious activities during online exams 
 - **Multi-Face Detection**: Alerts when multiple faces appear in frame
 - **Real-time Alerts**: Flags suspicious activities with timestamps
 - **Dashboard**: Visual interface showing detection metrics and alerts
+- **Object Delection**: Detects Object cell phone, Book.
 
 ## Technologies Used
 
@@ -67,6 +68,10 @@ detection:
     movement_threshold: 3     # consecutive frames
   multi_face:
     alert_threshold: 5        # frames
+  objects:
+    min_confidence: 0.65  # Detection confidence threshold
+    detection_interval: 5 # frames between detections
+    max_fps: 5            # Maximum detection frames per second
     
 logging:
   log_path: "./logs"
@@ -115,6 +120,9 @@ Solution:
     -Ensure good lighting on face
     -Remove glasses if they cause glare
     -Adjust camera position to be face-level
+Problem: Book detection working, but not perfect
+Solution:
+    -
 
 ## Contributing
 Contributions are welcome! Please open an issue or pull request for any improvements.
