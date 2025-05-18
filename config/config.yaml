@@ -42,3 +42,19 @@ logging:
     voice_alerts: true  # Enable/disable voice alerts
     alert_volume: 0.8   # Volume level (0.0 to 1.0)
     cooldown: 10        # Minimum seconds between same alert
+
+
+global:
+  output_path: "./reports"
+
+reporting:
+  image_dir: "./reports/generated/images"  # New subdirectory for images
+  output_dir: "./reports/generated"
+  wkhtmltopdf_path: "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
+  severity_levels:
+    FACE_DISAPPEARED: 1
+    GAZE_AWAY: 2
+    MOUTH_MOVING: 3
+    MULTIPLE_FACES: 4
+    OBJECT_DETECTED: 5
+    AUDIO_DETECTED: 3

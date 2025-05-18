@@ -123,6 +123,9 @@ recordings/
 # Model files (can be large)
 models/
 
+# Report files
+reports/
+
 # IDE specific files
 .idea/
 .vscode/

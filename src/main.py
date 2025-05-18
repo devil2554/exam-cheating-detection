@@ -11,6 +11,10 @@ from utils.video_utils import VideoRecorder
 from utils.screen_capture import ScreenRecorder
 from utils.logging import AlertLogger
 from utils.alert_system import AlertSystem
+from utils.violation_logger import ViolationLogger
+from utils.screenshot_utils import ViolationCapturer
+from reporting.report_generator import ReportGenerator
+
 
 def load_config():
     with open('config/config.yaml') as f:
@@ -56,6 +60,17 @@ def main():
     config = load_config()
     alert_logger = AlertLogger(config)
     alert_system = AlertSystem(config)
+    violation_capturer = ViolationCapturer(config)
+    violation_logger = ViolationLogger(config)
+    report_generator = ReportGenerator(config)
+
+    student_info = {
+        'id': 'STUDENT_001',
+        'name': 'John Doe',
+        'exam': 'Final Examination',
+        'course': 'Computer Science 101'
+    }
+
     
     # Initialize recorders
     video_recorder = VideoRecorder(config)
@@ -114,15 +129,70 @@ def main():
             results['objects_detected'] = detectors[4].detect_objects(frame)
 
             if not results['face_present']:
-                alert_system.speak_alert("FACE_DISAPPEARED")
+                violation_type = "FACE_DISAPPEARED"
+                alert_system.speak_alert(violation_type)
+                
+                # Capture and log violation
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+                violation_image = violation_capturer.capture_violation(frame, violation_type, timestamp)
+                violation_logger.log_violation(
+                    violation_type,
+                    timestamp,
+                    {'duration': '5+ seconds', 'frame': results}
+                )
+                # alert_system.speak_alert("FACE_DISAPPEARED")
             elif results['multiple_faces']:
-                alert_system.speak_alert("MULTIPLE_FACES")
+                violation_type = "MULTIPLE_FACES"
+                alert_system.speak_alert(violation_type)
+                
+                # Capture and log violation
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+                violation_image = violation_capturer.capture_violation(frame, violation_type, timestamp)
+                violation_logger.log_violation(
+                    violation_type,
+                    timestamp,
+                    {'duration': '5+ seconds', 'frame': results}
+                )
+                # alert_system.speak_alert("MULTIPLE_FACES")
             elif results['objects_detected']:
-                alert_system.speak_alert("OBJECT_DETECTED")
+                violation_type = "OBJECT_DETECTED"
+                alert_system.speak_alert(violation_type)
+                
+                # Capture and log violation
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+                violation_image = violation_capturer.capture_violation(frame, violation_type, timestamp)
+                violation_logger.log_violation(
+                    violation_type,
+                    timestamp,
+                    {'duration': '5+ seconds', 'frame': results}
+                )
+                # alert_system.speak_alert("OBJECT_DETECTED")
             # elif results['gaze_direction'] != "Center":
-            #     alert_system.speak_alert("GAZE_AWAY")
+            #     violation_type = "GAZE_AWAY"
+            #     alert_system.speak_alert(violation_type)
+                
+            #     # Capture and log violation
+            #     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+            #     violation_image = violation_capturer.capture_violation(frame, violation_type, timestamp)
+            #     violation_logger.log_violation(
+            #         violation_type,
+            #         timestamp,
+            #         {'duration': '5+ seconds', 'frame': results}
+            #     )
+                # alert_system.speak_alert("GAZE_AWAY")
             elif results['mouth_moving']:
-                alert_system.speak_alert("MOUTH_MOVING")
+                violation_type = "MOUTH_MOVING"
+                alert_system.speak_alert(violation_type)
+                
+                # Capture and log violation
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+                violation_image = violation_capturer.capture_violation(frame, violation_type, timestamp)
+                violation_logger.log_violation(
+                    violation_type,
+                    timestamp,
+                    {'duration': '5+ seconds', 'frame': results}
+                )
+                # alert_system.speak_alert("MOUTH_MOVING")
 
             
             # Display and record
@@ -135,6 +205,9 @@ def main():
                 break
                 
     finally:
+        violations = violation_logger.get_violations()
+        report_path = report_generator.generate_report(student_info, violations)
+        print(f"Report generated: {report_path}")
         if config['screen']['recording']:
             screen_data = screen_recorder.stop_recording()
             print(f"Screen recording saved: {screen_data['filename']}")

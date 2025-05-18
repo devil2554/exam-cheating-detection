@@ -17,6 +17,8 @@ A computer vision system that detects suspicious activities during online exams 
 - **Screen Recoding**: Continuously captures examinee's screen activity
 - **Audio Detection**: Monitors for voice/whispering in student's environment
 - **Alert Speaker**: Delivers real-time verbal warnings via text-to-speech
+- **Report Generation**: Creates detailed visual PDF and HTML reports with violations summary, heatmaps, and activity timeline  
+
 
 ## Technologies Used
 
@@ -113,9 +115,10 @@ exam_cheating_detection/
 ├── models/              # Pretrained models
 ├── src/                 # Source code
 │   ├── detection/       # Detection modules
+│   ├── reporting/       # Reporting application
 │   ├── utils/           # Utility functions
 │   ├── dashboard/       # Web dashboard
-│   └── main.py         # Main application
+│   └── main.py          # Main application
 ├── logs/                # Session logs
 └── recordings/          # Recorded video sessions
 ```
