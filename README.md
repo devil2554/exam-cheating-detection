@@ -14,6 +14,9 @@ A computer vision system that detects suspicious activities during online exams 
 - **Real-time Alerts**: Flags suspicious activities with timestamps
 - **Dashboard**: Visual interface showing detection metrics and alerts
 - **Object Delection**: Detects Object cell phone, Book.
+- **Screen Recoding**: Continuously captures examinee's screen activity
+- **Audio Detection**: Monitors for voice/whispering in student's environment
+- **Alert Speaker**: Delivers real-time verbal warnings via text-to-speech
 
 ## Technologies Used
 
@@ -51,14 +54,17 @@ video:
   resolution: [1280, 720]
   fps: 30
   recording_path: "./recordings"
-  
+
+screen:
+  monitor_index: 0           # 0 for primary monitor
+  fps: 15                    # Lower FPS for screen recording
+  recording: true            # Enable/disable screen recording
+
+
 detection:
   face:
     detection_interval: 5     # frames
-    min_confidence: 0.9
-  # eyes:
-  #   blink_threshold: 0.2      # seconds
-  #   gaze_threshold: 2         # seconds
+    min_confidence: 0.8
   eyes:
     gaze_threshold: 2          # seconds
     blink_threshold: 0.3       # EAR threshold for blink detection
@@ -72,10 +78,21 @@ detection:
     min_confidence: 0.65  # Detection confidence threshold
     detection_interval: 5 # frames between detections
     max_fps: 5            # Maximum detection frames per second
-    
+  audio_monitoring:
+    enabled: true
+    sample_rate: 16000
+    energy_threshold: 0.001
+    zcr_threshold: 0.35
+    whisper_enabled: false  # Enable only when needed
+    whisper_model: "tiny.en"
+        
 logging:
   log_path: "./logs"
   alert_cooldown: 10          # seconds
+  alert_system:
+    voice_alerts: true  # Enable/disable voice alerts
+    alert_volume: 0.8   # Volume level (0.0 to 1.0)
+    cooldown: 10        # Minimum seconds between same alert
 ```
 
 2.Run the main detection system:

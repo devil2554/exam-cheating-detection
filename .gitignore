@@ -131,4 +131,4 @@ models/
 
 # Config files (except default templates)
 config/alerts.yaml
-config/config.yaml
+# config/config.yaml
