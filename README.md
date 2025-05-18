@@ -13,7 +13,7 @@ A computer vision system that detects suspicious activities during online exams 
 - **Multi-Face Detection**: Alerts when multiple faces appear in frame
 - **Real-time Alerts**: Flags suspicious activities with timestamps
 - **Dashboard**: Visual interface showing detection metrics and alerts
-- **Object Delection**: Detects Object cell phone, Book.
+- **Object Delection**: Object Detection: Detects prohibited objects (cell phone, book, etc.).
 - **Screen Recoding**: Continuously captures examinee's screen activity
 - **Audio Detection**: Monitors for voice/whispering in student's environment
 - **Alert Speaker**: Delivers real-time verbal warnings via text-to-speech
